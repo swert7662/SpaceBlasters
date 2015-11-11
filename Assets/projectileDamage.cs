@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class damageHandler : MonoBehaviour {
+public class projectileDamage : MonoBehaviour {
 
 	public int health = 1;
 	public Transform shooter;
@@ -10,6 +10,7 @@ public class damageHandler : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) 
 	{
+		Debug.Log(shooter);
 		if (shooter != col.transform) {
 			health--;
 		}
@@ -33,15 +34,4 @@ public class damageHandler : MonoBehaviour {
 		Destroy (gameObject);
 
 	}
-
-	IEnumerator photonExplode()
-	{
-		GameObject explosion = (GameObject) Instantiate (explosionPrefab, transform.position, transform.rotation);
-
-		yield return new WaitForSeconds (2);
-		Debug.Log ("test");
-		Destroy (explosion);
-	}
-	
-	
 }

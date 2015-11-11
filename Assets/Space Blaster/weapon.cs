@@ -47,7 +47,7 @@ public class weapon : MonoBehaviour {
 	{
 		//	creates the projectile
 		GameObject bullet = (GameObject) Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
-		bullet.GetComponent<damageHandler>().shooter = this.gameObject.transform.parent;
+		bullet.GetComponent<projectileDamage>().shooter = this.gameObject.transform.parent;
 	}
 
 }

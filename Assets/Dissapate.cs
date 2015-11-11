@@ -14,7 +14,6 @@ public class Dissapate : MonoBehaviour {
 	void Update () 
 	{
 		lifeSpan -= Time.deltaTime;
-		Debug.Log ("Test");
 		if (lifeSpan <= 0) 
 		{
 			Destroy(gameObject);
