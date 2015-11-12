@@ -1,19 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PauseMenu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Space Blaster\scripts\HUD.cs">
     <Files>
-      <File FileName="Assets\PauseMenu.cs" Line="30" Column="26" />
-      <File FileName="Assets\Space Blaster\playerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Space Blaster\takeDamage.cs" Line="1" Column="1" />
-      <File FileName="Assets\Space Blaster\weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Space Blaster\MainMenu.cs" Line="8" Column="2" />
+      <File FileName="Assets\Space Blaster\scripts\HUD.cs" Line="25" Column="111" />
+      <File FileName="Assets\player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Space Blaster\scripts\PickUp.cs" Line="1" Column="1" />
+      <File FileName="Assets\Space Blaster\scripts\weapon.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Space Blaster" expanded="True" />
-            <Node name="PauseMenu.cs" selected="True" />
+            <Node name="Space Blaster" expanded="True">
+              <Node name="scripts" expanded="True">
+                <Node name="HUD.cs" selected="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>

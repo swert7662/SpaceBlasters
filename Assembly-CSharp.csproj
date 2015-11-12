@@ -45,16 +45,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PauseMenu.cs" />
-     <Compile Include="Assets\Space Blaster\Dissapate.cs" />
-     <Compile Include="Assets\Space Blaster\MainMenu.cs" />
-     <Compile Include="Assets\Space Blaster\PickUp.cs" />
-     <Compile Include="Assets\Space Blaster\ProjectileMove.cs" />
-     <Compile Include="Assets\Space Blaster\explode.cs" />
-     <Compile Include="Assets\Space Blaster\playerMove.cs" />
-     <Compile Include="Assets\Space Blaster\projectileDamage.cs" />
-     <Compile Include="Assets\Space Blaster\takeDamage.cs" />
-     <Compile Include="Assets\Space Blaster\weapon.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\Dissapate.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\HUD.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\MainMenu.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\PickUp.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\ProjectileMove.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\explode.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\playerMove.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\projectileDamage.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\takeDamage.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\weapon.cs" />
+     <Compile Include="Assets\player.cs" />
      <None Include="Assets\Tiles\tiles_spritesheet.xml" />
      <None Include="Assets\Background elements (110 assets)\Spritesheet\bgElements_spritesheet.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
