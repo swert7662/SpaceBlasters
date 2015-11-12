@@ -10,8 +10,16 @@ public class takeDamage : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) 
 	{
-		if (col.GetComponent<projectileDamage>().shooter != this.transform && col.transform.name == "red photon(Clone)") {
-			health--;
+		// prevent player from shooting self
+		// yields NullReferenceError when col is a powerup/weapon
+		if (col.GetComponent<projectileDamage>().shooter != this.transform) 
+		{
+			// prevents collision with powerup/weapon from doing damage
+			// incomplete method... think of something more efficient
+			if (col.transform.name == "red photon(Clone)")
+			{
+				health--;
+			}
 		}
 	}
 	
