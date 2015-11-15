@@ -59,7 +59,7 @@ public class playerMove : MonoBehaviour {
 			anim.SetBool("land", true);
 		}
 		if (col.gameObject.tag == "Respawn") {
-			this.GetComponent<player>().health = 0;
+			this.GetComponent<player>().kill();
 			Debug.Log("Respawn");
 		}
 	}

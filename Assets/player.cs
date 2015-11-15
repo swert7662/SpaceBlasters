@@ -22,7 +22,11 @@ public class player : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	public void kill(){
+		health = 0;
+		die();
+	}
 	// Update is called once per frame
 	void Update () 
 	{
