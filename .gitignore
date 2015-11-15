@@ -45,14 +45,14 @@ Temporary Items
 #Unity ignore
 obj
 Temp
-.suo
-.user
-.pidb
-.userprefs
-.csproj
-.sln
-.unityproj
-.DS_store
+*.suo
+*.user
+*.pidb
+*.userprefs
+*.csproj
+*.sln
+*.unityproj
+*.DS_store
 Library
 
 #build files
