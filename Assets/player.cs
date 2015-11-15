@@ -9,12 +9,11 @@ public class player : MonoBehaviour {
 	public Transform shooter;
 	
 	// Use this for initialization
-	void OnTriggerEnter2D(Collider2D col) 
-	{
+	void OnTriggerEnter2D(Collider2D col) {
+		projectileDamage P = col.GetComponent<projectileDamage> ();
 		// prevent player from shooting self
 		// yields NullReferenceError when col is a powerup/weapon
-		if (col.GetComponent<projectileDamage>().shooter != this.transform) 
-		{
+		if (P != null && P.shooter != this.transform) {
 			// prevents collision with powerup/weapon from doing damage
 			// incomplete method... think of something more efficient
 			if (col.transform.name == "red photon(Clone)")
