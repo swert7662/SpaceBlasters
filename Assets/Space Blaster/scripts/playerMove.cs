@@ -15,12 +15,22 @@ public class playerMove : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () 
-	{
-		Movement();
+	void Update () {
+		bool cont = true;
+		if(cont)  cont = amIAlive();
+		if (cont) cont = Movement();
 	}
 
-	void Movement()
+	bool amIAlive(){
+		player P = GetComponent<player> ();
+		bool ret = true;
+		if (P.health <= 0 && P.lives <= 0) {
+			ret = false;
+		}
+		return ret;
+	}
+
+	bool Movement()
 	{
 		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis ("Horizontal")));
 
@@ -48,6 +58,8 @@ public class playerMove : MonoBehaviour {
 			anim.SetBool("jump", true);
 			anim.SetBool("land", false);
 		}
+
+		return true;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
