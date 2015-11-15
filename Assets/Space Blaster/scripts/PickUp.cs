@@ -5,17 +5,23 @@ public class PickUp : MonoBehaviour {
 
 	public GameObject weaponPrefab;
 
-	// Use this for initialization
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		//Debug.Log (col.transform.GetChild(0).name);
-		GameObject gun = (GameObject) Instantiate (weaponPrefab, col.transform.GetChild(0).transform.position, col.transform.rotation);
-		gun.transform.parent = col.transform;
-		Destroy (gameObject);
+		// if col is a player
+		if (col.transform.childCount > 0) {
+			alreadyEquipped (col.transform);
+			GameObject gun = (GameObject)Instantiate (weaponPrefab, col.transform.GetChild (0).transform.position, col.transform.rotation);
+			gun.transform.parent = col.transform;
+			Destroy (gameObject);
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	// destroys the previously equipped weapon
+	void alreadyEquipped (Transform shooter)
+	{
+		if (shooter.childCount > 1) {
+			Destroy (shooter.GetChild(1).gameObject);
+		}
 	}
+
 }
