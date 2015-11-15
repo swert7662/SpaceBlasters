@@ -7,6 +7,7 @@ public class player : MonoBehaviour {
 	public int playerNum;
 	public int health = 3;
 	public int playerNumber = 1;
+	public GameObject[] respawn;
 	//public Transform shooter;
 	
 	// Use this for initialization
@@ -24,6 +25,11 @@ public class player : MonoBehaviour {
 		}
 	}
 
+	public void Start()
+	{
+		respawn = GameObject.FindGameObjectsWithTag ("Respawn");
+	}
+
 	public void kill(){
 		health = 0;
 		die();
@@ -31,25 +37,28 @@ public class player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (health <= 0)
-		{
+		if (health <= 0){
 			die();
 		}
 	}
 	
 	void die() {
 		if (lives > 0) {
-			Rigidbody2D rb = GetComponent<Rigidbody2D>();
-			if(rb==null){
-				Debug.LogError("Unable to acquire Rigidbody2D for player");
-				Application.Quit();
+			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
+			if (rb == null) {
+				Debug.LogError ("Unable to acquire Rigidbody2D for player");
+				Application.Quit ();
 			}
 			lives -= 1; 
 			health = 3;
 
-			rb.velocity = new Vector2(0.0f,0.0f);
-
-			transform.position = new Vector3(2.51f,4.65f,5.127533e-07f);
+			Debug.Log (respawn.Length);
+			//Debug.Log(respawn[1].transform.position);
+			transform.position = respawn[playerNum].transform.position;
+		} 
+		else 
+		{
+			Destroy(gameObject);
 		}
 	}
 }
