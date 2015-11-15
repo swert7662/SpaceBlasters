@@ -3,7 +3,8 @@ using System.Collections;
 
 public class player : MonoBehaviour {
 
-	public int lives = 3; 
+	public int lives = 1;
+	public int playerNum;
 	public int health = 3;
 	public int playerNumber = 1;
 	//public Transform shooter;
