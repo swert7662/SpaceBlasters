@@ -10,8 +10,7 @@ public class projectileDamage : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) 
 	{
-		Debug.Log(shooter);
-		if (shooter != col.transform) {
+		if (shooter != col.transform && col.gameObject.tag == "Player") {
 			health--;
 		}
 	}
