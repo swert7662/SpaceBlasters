@@ -48,7 +48,7 @@ public class playerMove : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.W) && !isJumping)
 		{
-			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 200f);
+			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 250f);
 			isJumping = true;
 			jumpTime = jumpDelay;
 			anim.SetBool("jump", true);
