@@ -53,7 +53,6 @@ Temp
 *.sln
 *.unityproj
 *.DS_store
-*.meta
 Library
 
 #build files
