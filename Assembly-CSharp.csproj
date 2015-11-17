@@ -56,8 +56,10 @@
      <Compile Include="Assets\Space Blaster\scripts\player2Move.cs" />
      <Compile Include="Assets\Space Blaster\scripts\playerMove.cs" />
      <Compile Include="Assets\Space Blaster\scripts\projectileDamage.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\spawnWeapon.cs" />
      <Compile Include="Assets\Space Blaster\scripts\takeDamage.cs" />
      <Compile Include="Assets\Space Blaster\scripts\weapon.cs" />
+     <Compile Include="Assets\Swing.cs" />
      <None Include="Assets\Tiles\tiles_spritesheet.xml" />
      <None Include="Assets\Background elements (110 assets)\Spritesheet\bgElements_spritesheet.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

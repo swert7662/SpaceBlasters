@@ -26,21 +26,12 @@ public class weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//	single fire weapon
-		if (fireRate == 0) {
-			if (Input.GetButtonDown ("Fire1")) {
-				Shoot();
-			}
-		} 
-		//	not single fire weapon
-		else 
-		{
-			if (Input.GetButton("Fire1") && Time.time > timeToFire)
-			{
-				timeToFire = Time.time + 1/fireRate;
-				Shoot();
-			}
+
+		if (Input.GetButtonDown("Fire1") && Time.time > timeToFire) {
+			timeToFire = Time.time + 1 / fireRate;
+			Shoot ();
 		}
+
 	}
 
 	void Shoot()
