@@ -18,15 +18,16 @@ public class player : MonoBehaviour {
 		if (P != null && P.shooter != this.transform) {
 			// prevents collision with powerup/weapon from doing damage
 			// incomplete method... think of something more efficient
-			if (col.transform.name == "red photon(Clone)"){
-				health-=3;
-			}
-			else if (col.transform.name == "green laser(Clone)"){
+			if (col.transform.name == "red photon(Clone)") {
+				health -= 3;
+			} else if (col.transform.name == "green laser(Clone)") {
 				health -= 1;
 			}
-		}
+			else if (col.transform.name == "Lightsaber Swing(Clone)") {
+				health -= 3;
+			}
+		} 
 	}
-
 	public void Start()
 	{
 		respawn = GameObject.FindGameObjectsWithTag ("Respawn");
