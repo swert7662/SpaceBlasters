@@ -30,6 +30,7 @@ public class HUD : MonoBehaviour {
 			heartUI_images[i] = heartUI[i].GetComponent<Image>();
 			heartUI[i].transform.GetChild(1).gameObject.AddComponent<SpriteRenderer>();
 			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = HUD_sprites[HUDsprite(i)];
+			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
 			heartUI[i].transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
 			heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
 		}
@@ -57,6 +58,7 @@ public class HUD : MonoBehaviour {
 			{
 				heartUI_images[i].sprite = heartSprites [player[i].health];
 				heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
+				heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
 			}
 		}
 	}

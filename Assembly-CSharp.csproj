@@ -53,6 +53,7 @@
      <Compile Include="Assets\Space Blaster\scripts\ProjectileMove.cs" />
      <Compile Include="Assets\Space Blaster\scripts\Swing.cs" />
      <Compile Include="Assets\Space Blaster\scripts\explode.cs" />
+     <Compile Include="Assets\Space Blaster\scripts\levelMenu.cs" />
      <Compile Include="Assets\Space Blaster\scripts\player.cs" />
      <Compile Include="Assets\Space Blaster\scripts\player2Move.cs" />
      <Compile Include="Assets\Space Blaster\scripts\playerMove.cs" />

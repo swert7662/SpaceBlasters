@@ -26,7 +26,11 @@ public class weapon : MonoBehaviour {
 	void Update () 
 	{
 
-		if (Input.GetButtonDown("Fire1") && Time.time > timeToFire) {
+		if (Input.GetButton("Fire1") && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
+			timeToFire = Time.time + 1 / fireRate;
+			Shoot ();
+		}
+		else if (Input.GetButtonDown("Fire1") && Time.time > timeToFire) {
 			timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}

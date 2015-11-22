@@ -21,8 +21,9 @@ public class spawnWeapon : MonoBehaviour {
 		}
 	}
 	// 10% Ion Cannon
-	// 50% Force Gun
-	// 40% Sword
+	// 30% Force Gun
+	// 30% Sword
+	// 30% shotgun
 	void createWeapon(){
 		if (transform.childCount == 0) {
 			randNum = (int)(Random.Range(1,100));
@@ -31,14 +32,19 @@ public class spawnWeapon : MonoBehaviour {
 				GameObject spawn = (GameObject) Instantiate (weapons [1], transform.position, transform.rotation);
 				spawn.transform.parent = transform;
 			}
-			else if (randNum > 10 && randNum < 51)
+			else if (randNum > 10 && randNum < 41)
 			{
 				GameObject spawn = (GameObject) Instantiate (weapons [2], transform.position, transform.rotation);
 				spawn.transform.parent = transform;	
 			}
-			else if (randNum > 50)
+			else if (randNum > 40 && randNum < 71)
 			{
 				GameObject spawn = (GameObject) Instantiate (weapons [0], transform.position, transform.rotation);
+				spawn.transform.parent = transform;	
+			}
+			else if (randNum > 70)
+			{
+				GameObject spawn = (GameObject) Instantiate (weapons [3], transform.position, transform.rotation);
 				spawn.transform.parent = transform;	
 			}
 		}

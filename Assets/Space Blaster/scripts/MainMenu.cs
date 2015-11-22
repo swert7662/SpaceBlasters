@@ -3,11 +3,9 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-	public string startLevel;
-
 	public void startGame()
 	{
-		Application.LoadLevel (startLevel);
+		Application.LoadLevel ("Level Selection");
 	}
 
 	public void exitGame()
