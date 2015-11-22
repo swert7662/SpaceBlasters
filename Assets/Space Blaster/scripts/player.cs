@@ -26,6 +26,9 @@ public class player : MonoBehaviour {
 			else if (col.transform.name == "Lightsaber Swing(Clone)") {
 				health -= 3;
 			}
+			else if (col.transform.name == "Shotgun Shot(Clone)") {
+				health -= 1;
+			}
 		} 
 	}
 	public void Start()
@@ -41,6 +44,7 @@ public class player : MonoBehaviour {
 	void Update () 
 	{
 		if (health <= 0){
+			health = 0;
 			die();
 		}
 	}

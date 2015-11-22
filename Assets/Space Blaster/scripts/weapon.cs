@@ -4,7 +4,6 @@ using System.Collections;
 public class weapon : MonoBehaviour {
 
 	public float fireRate = 0;
-	public float damage = 10;
 	public GameObject projectilePrefab;
 	public LayerMask notToHit;
 	public Transform firePoint;
@@ -36,9 +35,21 @@ public class weapon : MonoBehaviour {
 
 	void Shoot()
 	{
-		//	creates the projectile
-		GameObject bullet = (GameObject) Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
-		bullet.GetComponent<projectileDamage>().shooter = this.gameObject.transform.parent;
+		if (transform.name == "Shotgun Equipped(Clone)") {
+			GetComponent<AudioSource>().Play();
+			GameObject bullet1 = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
+			bullet1.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
+			GameObject bullet2 = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
+			bullet2.transform.Rotate (Vector3.forward * -10);
+			bullet2.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
+			GameObject bullet3 = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
+			bullet3.transform.Rotate (Vector3.forward * 10);
+			bullet3.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
+
+		} else {
+			GameObject bullet = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
+			bullet.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
+		}
 	}
 
 }

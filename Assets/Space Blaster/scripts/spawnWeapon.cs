@@ -16,7 +16,6 @@ public class spawnWeapon : MonoBehaviour {
 	void Update () {
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
-			Debug.Log ("DING");
 			timer = saveTimer;
 			createWeapon();
 		}
