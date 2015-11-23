@@ -47,6 +47,9 @@ public class HUD : MonoBehaviour {
 		else if (player[i].transform.name == "Pink Alien"){
 			return 2;
 		}
+		else if (player[i].transform.name == "Yellow Alien"){
+			return 3;
+		}
 		return 0;
 	}
 

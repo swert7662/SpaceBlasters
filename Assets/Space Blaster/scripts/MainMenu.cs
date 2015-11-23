@@ -8,6 +8,12 @@ public class MainMenu : MonoBehaviour {
 		Application.LoadLevel ("Level Selection");
 	}
 
+	public void options()
+	{
+		Application.LoadLevel ("Options Menu");
+	}
+
+
 	public void exitGame()
 	{
 		Application.Quit ();
