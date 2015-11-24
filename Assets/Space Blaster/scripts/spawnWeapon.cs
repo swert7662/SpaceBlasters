@@ -9,6 +9,7 @@ public class spawnWeapon : MonoBehaviour {
 	private int randNum;
 
 	void Start(){
+		createWeapon ();
 		saveTimer = timer;
 	}
 

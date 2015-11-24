@@ -10,7 +10,7 @@ public class projectileDamage : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) 
 	{
-		if (shooter != col.transform && col.gameObject.tag == "Player") {
+		if ((shooter != col.transform && col.gameObject.tag == "Player") || col.gameObject.tag == "Ground") {
 			health--;
 		}
 	}

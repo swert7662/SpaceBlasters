@@ -6,12 +6,9 @@ public class optionsMenu : MonoBehaviour {
 
 	public GameObject choiceHolder;
 
-	public void Start()
-	{
-	}
-
 	public void gameModeSelect()
 	{
+		GetComponent<AudioSource>().Play();
 		if (GetComponentInChildren<UnityEngine.UI.Text> ().text == "Stock") {
 			choiceHolder.GetComponent<gameModeVars> ().gameMode = "Stock";
 		}
@@ -23,12 +20,14 @@ public class optionsMenu : MonoBehaviour {
 
 	public void timeSelect()
 	{
+		GetComponent<AudioSource>().Play();
 		UnityEngine.UI.Text[] options = GetComponentsInChildren<UnityEngine.UI.Text> ();
 		choiceHolder.GetComponent<gameModeVars> ().num = Int32.Parse (options[1].text);
 	}
 
 	public void back()
 	{
+		GetComponent<AudioSource>().Play();
 		Application.LoadLevel ("Title Menu");
 	}
 }

@@ -3,15 +3,15 @@ using System.Collections;
 
 public class startLevel : MonoBehaviour {
 
-	public GameObject[] players;	
+	public GameObject[] spawn;
+	public GameObject[] playerPrefab;
+
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		for (int i = 0; i < spawn.Length; i++)
+		{
+			Instantiate(playerPrefab[i], spawn[i].transform.position, spawn[i].transform.rotation);
+		}
 	}
 }

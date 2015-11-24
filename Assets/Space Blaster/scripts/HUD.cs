@@ -38,16 +38,16 @@ public class HUD : MonoBehaviour {
 
 	int HUDsprite(int i)
 	{
-		if (player[i].transform.name == "Green Alien") {
+		if (player[i].transform.name == "Green Alien(Clone)") {
 			return 0;
 		}
-		else if (player[i].transform.name == "Blue Alien"){
+		else if (player[i].transform.name == "Blue Alien(Clone)"){
 			return 1;
 		}
-		else if (player[i].transform.name == "Pink Alien"){
+		else if (player[i].transform.name == "Pink Alien(Clone)"){
 			return 2;
 		}
-		else if (player[i].transform.name == "Yellow Alien"){
+		else if (player[i].transform.name == "Yellow Alien(Clone)"){
 			return 3;
 		}
 		return 0;

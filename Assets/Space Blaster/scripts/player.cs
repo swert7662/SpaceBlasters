@@ -13,21 +13,20 @@ public class player : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) {
 		projectileDamage P = col.GetComponent<projectileDamage> ();
-		// prevent player from shooting self
-		// yields NullReferenceError when col is a powerup/weapon
-		if (P != null && P.shooter != this.transform) {
-			// prevents collision with powerup/weapon from doing damage
-			// incomplete method... think of something more efficient
+		if (col.tag == "Instant Death") {
+			health = 0;
+		}
+		else if (P != null && P.shooter != this.transform) {
 			if (col.transform.name == "red photon(Clone)") {
-				health -= 3;
+				takeDamage(3);
 			} else if (col.transform.name == "green laser(Clone)") {
-				health -= 1;
+				takeDamage(1);
 			}
 			else if (col.transform.name == "Lightsaber Swing(Clone)") {
-				health -= 3;
+				takeDamage(3);
 			}
 			else if (col.transform.name == "Shotgun Shot(Clone)") {
-				health -= 1;
+				takeDamage(1);
 			}
 		} 
 	}
@@ -48,7 +47,7 @@ public class player : MonoBehaviour {
 			die();
 		}
 	}
-	
+
 	void die() {
 		if (lives > 0) {
 			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
@@ -66,6 +65,14 @@ public class player : MonoBehaviour {
 		else 
 		{
 			Destroy(gameObject);
+		}
+	}
+
+	private void takeDamage(int dmg)
+	{
+		health -= dmg;
+		if (health < 0) {
+			health = 0;
 		}
 	}
 }
