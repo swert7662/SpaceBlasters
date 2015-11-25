@@ -25,7 +25,6 @@ public class HUD : MonoBehaviour {
 		heartUI_images = new Image[temp.Length];
 		for (int i = 0; i < temp.Length; i++) 
 		{
-			Debug.Log ("TEST");
 			player[i] = temp[i].GetComponent<player>();
 			heartUI[i] = (GameObject) Instantiate (heartsPrefab, heartsLocation[i].position, heartsLocation[i].rotation);
 			heartUI[i].transform.parent = parent.transform;
