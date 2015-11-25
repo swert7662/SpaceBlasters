@@ -25,15 +25,25 @@ public class weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (gameObject.transform.parent.name == "Green Alien(Clone)") {
+			if (Input.GetButton ("Fire1") && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
+				timeToFire = Time.time + 1 / fireRate;
+				Shoot ();
+			} else if (Input.GetButtonDown ("Fire1") && Time.time > timeToFire) {
+				timeToFire = Time.time + 1 / fireRate;
+				Shoot ();
+			}
+		}
+		else {
+			if (Input.GetButton ("Fire2") && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
+				timeToFire = Time.time + 1 / fireRate;
+				Shoot ();
+			} else if (Input.GetButtonDown ("Fire2") && Time.time > timeToFire) {
+				timeToFire = Time.time + 1 / fireRate;
+				Shoot ();
+			}
+		}
 
-		if (Input.GetButton("Fire1") && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
-			timeToFire = Time.time + 1 / fireRate;
-			Shoot ();
-		}
-		else if (Input.GetButtonDown("Fire1") && Time.time > timeToFire) {
-			timeToFire = Time.time + 1 / fireRate;
-			Shoot ();
-		}
 
 	}
 
