@@ -8,7 +8,7 @@ public class startLevel : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		for (int i = 0; i < spawn.Length; i++)
 		{
 			Instantiate(playerPrefab[i], spawn[i].transform.position, spawn[i].transform.rotation);
