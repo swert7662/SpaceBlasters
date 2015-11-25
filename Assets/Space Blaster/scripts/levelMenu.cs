@@ -12,4 +12,9 @@ public class levelMenu : MonoBehaviour {
 	{
 		Application.LoadLevel ("Lava");
 	}
+
+	public void space()
+	{
+		Application.LoadLevel ("Space");
+	}
 }
