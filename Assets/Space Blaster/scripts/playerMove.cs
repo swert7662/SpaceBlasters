@@ -37,18 +37,18 @@ public class playerMove : MonoBehaviour {
 		//	same as GetKey(KeyCode.D)
 		if(Input.GetAxisRaw("Horizontal") > 0)
 		{
-			transform.Translate(Vector2.right * 6f * Time.deltaTime);
+			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 0);
 		}
 		//	same as GetKey(KeyCode.A)
 		if(Input.GetAxisRaw("Horizontal") < 0)
 		{
-			transform.Translate(Vector2.right * 6f * Time.deltaTime);
+			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 180);
 		}
 		if(Input.GetKeyDown(KeyCode.W) && !isJumping)
 		{
-			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 240f);
+			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 260f);
 			isJumping = true;
 			jumpTime = jumpDelay;
 			anim.SetBool("jump", true);
@@ -66,9 +66,14 @@ public class playerMove : MonoBehaviour {
 			anim.SetBool("jump", false);
 			anim.SetBool("land", true);
 		}
-		if (col.gameObject.tag == "Respawn") {
-			this.GetComponent<player>().kill();
-			Debug.Log("Respawn");
+	}
+
+	void OnCollisionStay2D(Collision2D col)
+	{
+		if (col.collider.tag == "Ground") {
+			isJumping = false;
+			anim.SetBool("jump", false);
+			anim.SetBool("land", true);
 		}
 	}
 }
