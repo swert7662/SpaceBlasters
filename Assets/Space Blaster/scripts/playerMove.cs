@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
 public class playerMove : MonoBehaviour {
 	
 	public bool isJumping = false;
-
-	float jumpTime, jumpDelay = .5f;
+	public float jumpHeight = 250f;
+	
+	float jumpTime = 0f, jumpDelay = 2f;
 
 	Animator anim;
 
@@ -40,17 +42,17 @@ public class playerMove : MonoBehaviour {
 			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 0);
 		}
-		//	same as GetKey(KeyCode.A)
-		if(Input.GetAxisRaw("Horizontal") < 0)
+        //	same as GetKey(KeyCode.A)
+        if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            transform.Translate(Vector2.right * 7f * Time.deltaTime);
+            transform.eulerAngles = new Vector2(0, 180);
+        }
+		if(Input.GetKeyDown(KeyCode.W) && !isJumping && Time.time > jumpTime)
 		{
-			transform.Translate(Vector2.right * 7f * Time.deltaTime);
-			transform.eulerAngles = new Vector2(0, 180);
-		}
-		if(Input.GetKeyDown(KeyCode.W) && !isJumping)
-		{
-			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 260f);
+			GetComponent<Rigidbody2D>().AddForce (new Vector3(0, jumpHeight, 0), ForceMode2D.Force);
 			isJumping = true;
-			jumpTime = jumpDelay;
+			jumpTime = Time.time + 1/jumpDelay;
 			anim.SetBool("jump", true);
 			anim.SetBool("land", false);
 		}
@@ -68,12 +70,12 @@ public class playerMove : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionStay2D(Collision2D col)
+	/*void OnCollisionStay2D(Collision2D col)
 	{
 		if (col.collider.tag == "Ground") {
 			isJumping = false;
 			anim.SetBool("jump", false);
 			anim.SetBool("land", true);
 		}
-	}
+	}*/
 }
