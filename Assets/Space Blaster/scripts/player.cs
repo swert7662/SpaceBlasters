@@ -4,11 +4,9 @@ using System.Collections;
 public class player : MonoBehaviour {
 
 	public int lives = 1;
-	public int playerNum;
 	public int health = 3;
-	public int playerNumber = 1;
 	public GameObject[] respawn;
-	//public Transform shooter;
+    public int respawnNum;
 	
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D col) {
@@ -60,7 +58,7 @@ public class player : MonoBehaviour {
 
 			Debug.Log (respawn.Length);
 			//Debug.Log(respawn[1].transform.position);
-			transform.position = respawn[playerNum].transform.position;
+			transform.position = respawn[respawnNum].transform.position;
 		} 
 		else 
 		{

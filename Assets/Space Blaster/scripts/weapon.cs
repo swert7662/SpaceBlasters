@@ -5,20 +5,16 @@ public class weapon : MonoBehaviour {
 
 	public float fireRate = 0;
 	public GameObject projectilePrefab;
-	public LayerMask notToHit;
 	public Transform firePoint;
 
-	float timeToFire = 0;
+    private string shootButton;
+	private float timeToFire = 0;
 
 	// Use this for initialization
-	void Awake () 
+	void Start () 
 	{
 		firePoint = transform.FindChild ("firePoint");
-
-		if (firePoint == null) 
-		{
-			Debug.LogError("No firePoint? WHAT?!");
-		}
+        shootButton = GetComponentInParent<playerMove>().shootButton;
 	
 	}
 	
@@ -26,11 +22,11 @@ public class weapon : MonoBehaviour {
 	void Update () 
 	{
 
-		if (Input.GetButton("Fire1") && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
+		if (Input.GetButton(shootButton) && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
 			timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}
-		else if (Input.GetButtonDown("Fire1") && Time.time > timeToFire) {
+		else if (Input.GetButtonDown(shootButton) && Time.time > timeToFire) {
 			timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}

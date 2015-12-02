@@ -4,6 +4,9 @@ using System.Collections;
 public class playerMove : MonoBehaviour {
 	
 	public bool isJumping = false;
+    public string movementAxis;
+    public string jumpButton;
+    public string shootButton;
 
 	float jumpTime, jumpDelay = .5f;
 
@@ -32,21 +35,24 @@ public class playerMove : MonoBehaviour {
 
 	bool Movement()
 	{
-		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis ("Horizontal")));
 
-		//	same as GetKey(KeyCode.D)
-		if(Input.GetAxisRaw("Horizontal") > 0)
+        anim.SetFloat("speed", Mathf.Abs(Input.GetAxis(movementAxis)));
+
+        
+
+		//	move left
+		if(Input.GetAxisRaw(movementAxis) > 0)
 		{
 			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 0);
 		}
-		//	same as GetKey(KeyCode.A)
-		if(Input.GetAxisRaw("Horizontal") < 0)
-		{
+        //	move right
+        if (Input.GetAxisRaw(movementAxis) < 0)
+        {
 			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 180);
 		}
-		if(Input.GetKeyDown(KeyCode.W) && !isJumping)
+		if(Input.GetButtonDown(jumpButton) && !isJumping)
 		{
 			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 260f);
 			isJumping = true;
