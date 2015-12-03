@@ -8,7 +8,7 @@ public class playerMove : MonoBehaviour {
     public string jumpButton;
     public string shootButton;
 
-	float jumpTime, jumpDelay = .5f;
+	float jumpTime, jumpDelay = 2f;
 
 	Animator anim;
 
@@ -17,51 +17,31 @@ public class playerMove : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 
-	// Update is called once per frame
-	void Update () {
-		bool cont = true;
-		if(cont)  cont = amIAlive();
-		if (cont) cont = Movement();
-	}
-
-	bool amIAlive(){
-		player P = GetComponent<player> ();
-		bool ret = true;
-		if (P.health <= 0 && P.lives <= 0) {
-			ret = false;
-		}
-		return ret;
-	}
-
-	bool Movement()
+	 void Update()
 	{
-
         anim.SetFloat("speed", Mathf.Abs(Input.GetAxis(movementAxis)));
-
-        
-
 		//	move left
 		if(Input.GetAxisRaw(movementAxis) > 0)
 		{
 			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 0);
 		}
+
         //	move right
         if (Input.GetAxisRaw(movementAxis) < 0)
         {
 			transform.Translate(Vector2.right * 7f * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 180);
 		}
-		if(Input.GetButtonDown(jumpButton) && !isJumping)
+
+		if(Input.GetButtonDown(jumpButton) && !isJumping && Time.time > jumpTime)
 		{
 			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 260f);
 			isJumping = true;
-			jumpTime = jumpDelay;
+			jumpTime = Time.time + 1 / jumpDelay;
 			anim.SetBool("jump", true);
 			anim.SetBool("land", false);
 		}
-
-		return true;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)

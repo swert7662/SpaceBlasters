@@ -22,12 +22,16 @@ public class weapon : MonoBehaviour {
 	void Update () 
 	{
 
-		if (Input.GetButton(shootButton) && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire) {
-			timeToFire = Time.time + 1 / fireRate;
+		if (Input.GetButton(shootButton) && gameObject.transform.name == "Force Gun Equipped(Clone)" && Time.time > timeToFire)
+        {
+            GetComponent<AudioSource>().Play();
+            timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}
-		else if (Input.GetButtonDown(shootButton) && Time.time > timeToFire) {
-			timeToFire = Time.time + 1 / fireRate;
+		else if (Input.GetButtonDown(shootButton) && Time.time > timeToFire)
+        {
+            GetComponent<AudioSource>().Play();
+            timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}
 
@@ -35,8 +39,8 @@ public class weapon : MonoBehaviour {
 
 	void Shoot()
 	{
-		if (transform.name == "Shotgun Equipped(Clone)") {
-			GetComponent<AudioSource>().Play();
+		if (transform.name == "Shotgun Equipped(Clone)")
+        {
 			GameObject bullet1 = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
 			bullet1.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
 			GameObject bullet2 = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
@@ -46,7 +50,9 @@ public class weapon : MonoBehaviour {
 			bullet3.transform.Rotate (Vector3.forward * 10);
 			bullet3.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
 
-		} else {
+		}
+        else
+        {
 			GameObject bullet = (GameObject)Instantiate (projectilePrefab, firePoint.position, firePoint.rotation);
 			bullet.GetComponent<projectileDamage> ().shooter = this.gameObject.transform.parent;
 		}

@@ -4,6 +4,7 @@ using System.Collections;
 public class projectileDamage : MonoBehaviour {
 
 	public int health = 1;
+    public int damage = 0;
 	public Transform shooter;
 	public GameObject explosionPrefab;
 

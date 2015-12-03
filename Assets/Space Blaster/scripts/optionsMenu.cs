@@ -31,7 +31,6 @@ public class optionsMenu : MonoBehaviour {
         GetComponent<AudioSource>().Play();
         gameMode = "Stock";
         GetComponentsInChildren<UnityEngine.UI.Text>()[6].text = "Stock";
-
     }
 
     //**************************
