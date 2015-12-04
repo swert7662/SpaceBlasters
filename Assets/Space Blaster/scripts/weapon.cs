@@ -15,7 +15,6 @@ public class weapon : MonoBehaviour {
 	{
 		firePoint = transform.FindChild ("firePoint");
         shootButton = GetComponentInParent<playerMove>().shootButton;
-	
 	}
 	
 	// Update is called once per frame
@@ -34,7 +33,6 @@ public class weapon : MonoBehaviour {
             timeToFire = Time.time + 1 / fireRate;
 			Shoot ();
 		}
-
 	}
 
 	void Shoot()

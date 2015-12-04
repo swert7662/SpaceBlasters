@@ -34,12 +34,12 @@ public class PauseMenu : MonoBehaviour {
 
 	public void resume()
 	{
-		menuUp = false;
+        menuUp = false;
 	}
 
 	public void exitGame()
 	{
-		Application.Quit ();
+        Application.Quit ();
 	}
 
 }

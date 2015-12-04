@@ -8,7 +8,8 @@ public class PickUp : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		// if col is a player
-		if (col.transform.childCount > 0) {
+		if (col.transform.childCount > 0)
+        {
 			alreadyEquipped (col.transform);
 			GameObject gun = (GameObject)Instantiate (weaponPrefab, col.transform.GetChild(0).transform.position, col.transform.rotation);
 			if (gun.transform.GetChild(0).name == "Hilt")

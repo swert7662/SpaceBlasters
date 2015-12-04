@@ -6,6 +6,7 @@ public class optionsMenu : MonoBehaviour {
 
     static public int livesOrTime = 1;
     static public int players = 2;
+    static public float time;
 	static public string gameMode = "Stock";
 
     public void Start()
@@ -32,6 +33,13 @@ public class optionsMenu : MonoBehaviour {
         gameMode = "Stock";
         GetComponentsInChildren<UnityEngine.UI.Text>()[6].text = "Stock";
     }
+
+    public void timeSet()
+    {
+        time = GetComponentInChildren<UnityEngine.UI.Scrollbar>().value * 300;
+        GetComponentsInChildren<UnityEngine.UI.Text>()[23].text = Math.Round(time/60, 2).ToString() + " Min";
+    }
+
 
     //**************************
     //Players buttons

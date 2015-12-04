@@ -7,8 +7,7 @@ public class player : MonoBehaviour {
 	public int health = 3;
 	public GameObject[] respawn;
     public int playerNum;
-
-    int kills = 0;
+    public int kills = 0;
 
     // Use this for initialization
     public void Start()
@@ -31,7 +30,6 @@ public class player : MonoBehaviour {
                 col.GetComponent<projectileDamage>().shooter.GetComponent<player>().kills += 1;
             }
         }
-
 	}
 	
 	void kill(){

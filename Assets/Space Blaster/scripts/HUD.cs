@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class HUD : MonoBehaviour {
 
 	public Sprite[] heartSprites; 
 	public Sprite[] HUD_sprites;
 	public Sprite[] numSprites;
-
 	public player[] player;
 	public Transform[] heartsLocation;
 	public GameObject heartsPrefab;
 	public GameObject parent;
+    public Text timer;
 	
 	GameObject[] heartUI;
 	Image[] heartUI_images;
@@ -34,7 +35,8 @@ public class HUD : MonoBehaviour {
 			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
 			heartUI[i].transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
 			heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
-		}
+            heartUI[i].transform.GetChild(2).gameObject.AddComponent<SpriteRenderer>();
+        }
 	}
 
 	int HUDsprite(int i)
@@ -61,10 +63,39 @@ public class HUD : MonoBehaviour {
 			if (player[i])
 			{
 				heartUI_images[i].sprite = heartSprites [player[i].health];
-				heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
-				heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
-			}
+                if (optionsMenu.gameMode == "Stock")
+                {
+                    heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
+                }
+                else
+                {
+                    drawKills(i);
+                }
+                heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
+
+            }
 		}
+
+        if (optionsMenu.gameMode == "Time")
+        {
+            timer.text = ((float)Math.Round(GetComponent<gameTracker>().time/60, 2)).ToString();
+        }
+
 	}
+
+    private void drawKills(int i)
+    {
+        if (player[i].GetComponent<player>().kills < 10)
+        {
+            heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().kills];
+        }
+        else
+        {
+ 
+            heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().kills / 10];
+            heartUI[i].transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().kills % 10];
+            heartUI[i].transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
+        }
+    }
 
 }
