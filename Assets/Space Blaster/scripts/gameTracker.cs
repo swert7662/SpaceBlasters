@@ -5,7 +5,7 @@ public class gameTracker : MonoBehaviour {
 
     static public int playersDead = 0;
     static public int winner = 1;
-    private GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+    
     public float time;
 
     private float winDelay = 2;
@@ -60,6 +60,7 @@ public class gameTracker : MonoBehaviour {
     {
         int mostKills = 0;
         int winner = 0;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         
         for (int i = 0; i < players.Length; i++)
         {
