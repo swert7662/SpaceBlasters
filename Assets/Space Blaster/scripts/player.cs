@@ -5,14 +5,14 @@ public class player : MonoBehaviour {
 
 	public int lives = 1;
 	public int health = 3;
-	public GameObject[] respawn;
+	public GameObject[] spawner;
     public int playerNum;
     public int kills = 0;
 
     // Use this for initialization
     public void Start()
     {
-        respawn = GameObject.FindGameObjectsWithTag("Respawn");
+        spawner = GameObject.FindGameObjectsWithTag("Respawn");
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -31,32 +31,13 @@ public class player : MonoBehaviour {
             }
         }
 	}
-	
-	void kill(){
-		health = 0;
-		die();
-	}
 
 	// Update is called once per frame
 	void Update () 
 	{
 		if (health <= 0){
 			health = 0;
-			die();
-		}
-	}
-
-	void die() {
-		if (lives > 0)
-        {
-			lives -= 1; 
-			health = 3;
-			transform.position = respawn[playerNum].transform.position;
-		} 
-		else 
-		{
-            gameTracker.playersDead += 1;
-            Destroy(gameObject);
+			respawn();
 		}
 	}
 
@@ -67,4 +48,19 @@ public class player : MonoBehaviour {
 			health = 0;
 		}
 	}
+
+    private void respawn()
+    {
+        if (optionsMenu.gameMode == "Stock" && lives <= 0)
+        {
+            gameTracker.playersDead += 1;
+            Destroy(gameObject);
+        }
+        else
+        {
+            lives -= 1;
+            health = 3;
+            transform.position = spawner[playerNum].transform.position;
+        }
+    }
 }

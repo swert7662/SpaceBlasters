@@ -37,9 +37,19 @@ public class optionsMenu : MonoBehaviour {
     public void timeSet()
     {
         time = GetComponentInChildren<UnityEngine.UI.Scrollbar>().value * 300;
-        GetComponentsInChildren<UnityEngine.UI.Text>()[23].text = Math.Round(time/60, 2).ToString() + " Min";
+        GetComponentsInChildren<UnityEngine.UI.Text>()[23].text = parseTime(time);
     }
 
+    private string parseTime(float f)
+    {
+        String secondsString;
+        int minutes =  (int) f/60;
+        int seconds = (int)(((f/60) - minutes) * 60);
+
+        secondsString = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
+
+        return minutes + ":" + secondsString;
+    }
 
     //**************************
     //Players buttons

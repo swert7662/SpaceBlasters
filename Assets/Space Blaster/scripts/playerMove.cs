@@ -34,7 +34,7 @@ public class playerMove : MonoBehaviour {
 			transform.eulerAngles = new Vector2(0, 180);
 		}
 
-		if(Input.GetButtonDown(jumpButton) && !isJumping && Time.time > jumpTime)
+		if((Input.GetButtonDown(jumpButton) || ((GetComponent<player>().playerNum == 2 || GetComponent<player>().playerNum == 3) && Input.GetAxisRaw(jumpButton) > 0)) && !isJumping && Time.time > jumpTime)
 		{
 			GetComponent<Rigidbody2D>().AddForce (Vector2.up * 260f);
 			isJumping = true;
@@ -54,12 +54,23 @@ public class playerMove : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionStay2D(Collision2D col)
-	{
-		if (col.collider.tag == "Ground") {
-			isJumping = false;
-			anim.SetBool("jump", false);
-			anim.SetBool("land", true);
-		}
-	}
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Player")
+        {
+            isJumping = true;
+            anim.SetBool("jump", true);
+            anim.SetBool("land", false);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Player")
+        {
+            isJumping = false;
+            anim.SetBool("jump", false);
+            anim.SetBool("land", true);
+        }
+    }
 }

@@ -15,5 +15,4 @@ public class winScreen : MonoBehaviour {
         GetComponentInChildren<AudioSource>().Play();
         Application.LoadLevel("Title Menu");
     }
-
 }

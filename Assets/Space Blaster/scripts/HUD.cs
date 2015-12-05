@@ -19,11 +19,11 @@ public class HUD : MonoBehaviour {
 
 	void Start()
 	{
-
 		GameObject[] temp = GameObject.FindGameObjectsWithTag ("Player");
 		player = new player[temp.Length];
 		heartUI = new GameObject[temp.Length];
 		heartUI_images = new Image[temp.Length];
+
 		for (int i = 0; i < temp.Length; i++) 
 		{
 			player[i] = temp[i].GetComponent<player>();
@@ -36,6 +36,10 @@ public class HUD : MonoBehaviour {
 			heartUI[i].transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
 			heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
             heartUI[i].transform.GetChild(2).gameObject.AddComponent<SpriteRenderer>();
+        }
+        if (optionsMenu.gameMode == "Stock")
+        {
+            Destroy(timer);
         }
 	}
 
@@ -72,15 +76,12 @@ public class HUD : MonoBehaviour {
                     drawKills(i);
                 }
                 heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
-
             }
 		}
-
         if (optionsMenu.gameMode == "Time")
         {
-            timer.text = ((float)Math.Round(GetComponent<gameTracker>().time/60, 2)).ToString();
+           timer.text = parseTime(GetComponent<gameTracker>().time);
         }
-
 	}
 
     private void drawKills(int i)
@@ -91,11 +92,20 @@ public class HUD : MonoBehaviour {
         }
         else
         {
- 
             heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().kills / 10];
             heartUI[i].transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().kills % 10];
             heartUI[i].transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
         }
     }
 
+    private string parseTime(float f)
+    {
+        String secondsString;
+        int minutes = (int)f / 60;
+        int seconds = (int)(((f / 60) - minutes) * 60);
+
+        secondsString = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
+
+        return minutes + ":" + secondsString;
+    }
 }
