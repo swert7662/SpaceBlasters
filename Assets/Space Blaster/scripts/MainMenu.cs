@@ -15,8 +15,13 @@ public class MainMenu : MonoBehaviour {
 		Application.LoadLevel ("Options Menu");
 	}
 
+    public void controls()
+    {
+        GetComponent<AudioSource>().Play();
+        Application.LoadLevel("Controls");
+    }
 
-	public void exitGame()
+    public void exitGame()
 	{
 		GetComponent<AudioSource>().Play();
 		Application.Quit ();

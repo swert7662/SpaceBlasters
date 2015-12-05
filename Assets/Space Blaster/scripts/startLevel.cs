@@ -6,8 +6,6 @@ public class startLevel : MonoBehaviour {
 	GameObject[] spawn;
 	public GameObject[] playerPrefab;
 	GameObject[] players;
-    public GameObject weaponPrefab;
-
 
 	// Use this for initialization
 	void Awake () {
@@ -17,8 +15,6 @@ public class startLevel : MonoBehaviour {
 		{
 			players[i] = (GameObject) Instantiate(playerPrefab[i], spawn[i].transform.position, spawn[i].transform.rotation);
 			players[i].GetComponent<player>().lives = optionsMenu.livesOrTime;
-            GameObject gun = (GameObject) Instantiate(weaponPrefab, players[i].transform.GetChild(0).position, players[i].transform.rotation);
-            gun.transform.parent = players[i].transform;
         }
 	}
 }

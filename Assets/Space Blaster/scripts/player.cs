@@ -7,11 +7,13 @@ public class player : MonoBehaviour {
 	public int health = 3;
 	public GameObject[] spawner;
     public int playerNum;
+    public GameObject weaponPrefab;
     public int kills = 0;
 
     // Use this for initialization
     public void Start()
     {
+        equipStartGun();
         spawner = GameObject.FindGameObjectsWithTag("Respawn");
     }
 
@@ -60,7 +62,15 @@ public class player : MonoBehaviour {
         {
             lives -= 1;
             health = 3;
+            Destroy(transform.GetChild(1).gameObject);
+            equipStartGun();
             transform.position = spawner[playerNum].transform.position;
         }
+    }
+
+    private void equipStartGun()
+    {
+        GameObject gun = (GameObject)Instantiate(weaponPrefab, transform.GetChild(0).position, transform.rotation);
+        gun.transform.parent = transform;
     }
 }
