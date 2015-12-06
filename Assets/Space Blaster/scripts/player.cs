@@ -10,6 +10,9 @@ public class player : MonoBehaviour {
     public GameObject weaponPrefab;
     public int kills = 0;
 
+    private float invulnTimer = 1.5f;
+    private bool invuln = false;
+
     // Use this for initialization
     public void Start()
     {
@@ -24,7 +27,7 @@ public class player : MonoBehaviour {
         {
 			health = 0;
 		}
-		else if (P != null && P.shooter != this.transform)
+		else if (P != null && P.shooter != this.transform && invuln == false)
         {
             takeDamage(col.GetComponent<projectileDamage>().damage);
             if (health <= 0)
@@ -37,17 +40,28 @@ public class player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (health <= 0){
+        if (health <= 0){
 			health = 0;
-			respawn();
+            invuln = true;
+            invulnTimer = 1.5f;
+            respawn();
 		}
-	}
+        if (invuln == true)
+        {
+            invulnTimer -= Time.deltaTime;
+            Debug.Log(invulnTimer);
+            if (invulnTimer <= 0)
+            {
+                invuln = false;
+            }
+        }
+    }
 
 	private void takeDamage(int dmg)
 	{
 		health -= dmg;
 		if (health < 0) {
-			health = 0;
+            health = 0;
 		}
 	}
 

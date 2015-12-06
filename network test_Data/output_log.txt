@@ -21,60 +21,28 @@ Loading C:\Users\exdunn\Desktop\spaceBlasters\network test_Data\Managed\UnityEng
 Platform assembly: C:\Users\exdunn\Desktop\spaceBlasters\network test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\exdunn\Desktop\spaceBlasters\network test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\exdunn\Desktop\spaceBlasters\network test_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.056 seconds
+- Completed reload, in  0.050 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\exdunn\Desktop\spaceBlasters\network test_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2448 -> priority: 1 
-  Thread -> id: 1c54 -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.554727 ms
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 252.
-Total: 0.300870 ms (FindLiveObjects: 0.042813 ms CreateObjectMapping: 0.021113 ms MarkObjects: 0.222280 ms  DeleteObjects: 0.014075 ms)
+  Thread -> id: 250c -> priority: 1 
+  Thread -> id: 2fe4 -> priority: 1 
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.763612 ms
+UnloadTime: 3.376433 ms
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 730.
-Total: 0.351895 ms (FindLiveObjects: 0.022873 ms CreateObjectMapping: 0.030790 ms MarkObjects: 0.282982 ms  DeleteObjects: 0.014955 ms)
-
-Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-start
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-6
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 450.
+Total: 0.280929 ms (FindLiveObjects: 0.018181 ms CreateObjectMapping: 0.011729 ms MarkObjects: 0.245740 ms  DeleteObjects: 0.004398 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.263240 ms
+UnloadTime: 3.005184 ms
 
-Unloading 391 unused Assets to reduce memory usage. Loaded Objects now: 248.
-Total: 1.999937 ms (FindLiveObjects: 0.083575 ms CreateObjectMapping: 0.103222 ms MarkObjects: 0.490307 ms  DeleteObjects: 1.321072 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.289140 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 277.
-Total: 0.652178 ms (FindLiveObjects: 0.040174 ms CreateObjectMapping: 0.046919 ms MarkObjects: 0.553061 ms  DeleteObjects: 0.010263 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 274.
+Total: 0.386498 ms (FindLiveObjects: 0.031963 ms CreateObjectMapping: 0.019940 ms MarkObjects: 0.323743 ms  DeleteObjects: 0.009970 ms)
 
