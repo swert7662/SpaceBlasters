@@ -17,4 +17,9 @@ public class levelMenu : MonoBehaviour {
 	{
 		Application.LoadLevel ("Space");
 	}
+
+    public void ice()
+    {
+        Application.LoadLevel("Ice");
+    }
 }

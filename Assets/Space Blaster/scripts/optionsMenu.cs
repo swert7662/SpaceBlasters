@@ -23,6 +23,7 @@ public class optionsMenu : MonoBehaviour {
 	public void timeSelect()
 	{
         GetComponent<AudioSource>().Play();
+        timeSet();
         gameMode = "Time";
         GetComponentsInChildren<UnityEngine.UI.Text>()[6].text = "Time";
 	}
