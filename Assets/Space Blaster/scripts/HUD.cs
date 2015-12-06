@@ -31,7 +31,7 @@ public class HUD : MonoBehaviour {
 			heartUI[i].transform.parent = parent.transform;
 			heartUI_images[i] = heartUI[i].GetComponent<Image>();
 			heartUI[i].transform.GetChild(1).gameObject.AddComponent<SpriteRenderer>();
-			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = HUD_sprites[HUDsprite(i)];
+			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = HUD_sprites[player[i].GetComponent<player>().playerNum];
 			heartUI[i].transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "HUD";
 			heartUI[i].transform.GetChild(0).gameObject.AddComponent<SpriteRenderer>();
 			heartUI[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = numSprites[player[i].GetComponent<player>().lives];
@@ -41,23 +41,6 @@ public class HUD : MonoBehaviour {
         {
             Destroy(timer);
         }
-	}
-
-	int HUDsprite(int i)
-	{
-		if (player[i].transform.name == "Green Alien(Clone)") {
-			return 0;
-		}
-		else if (player[i].transform.name == "Blue Alien(Clone)"){
-			return 1;
-		}
-		else if (player[i].transform.name == "Pink Alien(Clone)"){
-			return 2;
-		}
-		else if (player[i].transform.name == "Yellow Alien(Clone)"){
-			return 3;
-		}
-		return 0;
 	}
 
 	void Update()
