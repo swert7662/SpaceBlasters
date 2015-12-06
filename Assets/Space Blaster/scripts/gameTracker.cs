@@ -20,7 +20,7 @@ public class gameTracker : MonoBehaviour {
     {
         if (optionsMenu.gameMode == "Stock")
         {
-            return playersDead == optionsMenu.players - 1 ? true : false;
+            return playersDead >= optionsMenu.players - 1 ? true : false;
         }
         else
         {
@@ -30,21 +30,20 @@ public class gameTracker : MonoBehaviour {
 
     void Update()
     {
-        
         if(roundOver())
         {
+            if (optionsMenu.gameMode == "Stock" && winDelay == 2f)
+            {
+                winner = lastAlive();
+            }
+            else if (winDelay == 2)
+            {
+                winner = mostKills();
+            }
+
             winDelay -= Time.deltaTime;
             if (winDelay <= 0)
             {
-                if (optionsMenu.gameMode == "Stock")
-                {
-                    winner = GameObject.FindGameObjectWithTag("Player").GetComponent<player>().playerNum;
-                }
-                else
-                {
-                    winner = mostKills();
-                }
-                
                 playersDead = 0;
                 time = optionsMenu.time;
                 Application.LoadLevel("Win Screen");
@@ -54,6 +53,19 @@ public class gameTracker : MonoBehaviour {
         {
             time -= Time.deltaTime;
         }
+    }
+
+    private int lastAlive()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].GetComponent<player>().lives > 0)
+            {
+                return players[i].GetComponent<player>().playerNum;
+            }
+        }
+        return -1;
     }
 
     private int mostKills()
